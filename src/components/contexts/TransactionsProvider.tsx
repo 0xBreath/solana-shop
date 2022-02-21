@@ -1,4 +1,4 @@
-import { getAssociatedTokenAddress } from '@solana/spl-token';
+import { Token } from '@solana/spl-token';
 import { useConnection } from '@solana/wallet-adapter-react';
 import {
     LAMPORTS_PER_SOL,
@@ -17,6 +17,10 @@ import { Confirmations } from '../../types';
 import { arraysEqual } from '../../utils/arraysEqual';
 import { MAX_CONFIRMATIONS, MAINNET_ENDPOINT } from '../../utils/constants';
 import { usePayment } from '../../hooks/usePayment'
+import {
+    SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
+    TOKEN_METADATA_PROGRAM_ID
+} from '../../utils/constants'
 
 export interface TransactionsProviderProps {
     children: ReactNode;
@@ -45,7 +49,12 @@ export const TransactionsProvider: FC<TransactionsProviderProps> = ({ children, 
         let changed = false;
 
         (async () => {
-            const associatedToken = await getAssociatedTokenAddress(splToken, recipient);
+            const associatedToken = await Token.getAssociatedTokenAddress(
+                SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
+                TOKEN_METADATA_PROGRAM_ID,
+                splToken, 
+                recipient
+            );
             if (changed) return;
 
             setAssociatedToken(associatedToken);
