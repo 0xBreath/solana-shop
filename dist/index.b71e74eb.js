@@ -60192,8 +60192,8 @@ Signature.prototype.toHex = function toHex() {
 module.exports = Signature;
 
 },{"bn.js":"d0RHy","../utils":"8sNT5"}],"7x0z6":[function(require,module,exports) {
-var process = require("process");
 var global = arguments[3];
+var process = require("process");
 /**
  * [js-sha3]{@link https://github.com/emn178/js-sha3}
  *
@@ -72581,7 +72581,7 @@ class TorusWalletAdapter extends _walletAdapterBase.BaseMessageSignerWalletAdapt
             this._connecting = true;
             let TorusEmbed;
             try {
-                TorusEmbed = await require("f40f846cc7b67c53");
+                TorusEmbed = await require("712777d8002b32df");
             } catch (error) {
                 throw new _walletAdapterBase.WalletLoadError(error === null || error === void 0 ? void 0 : error.message, error);
             }
@@ -72675,7 +72675,7 @@ class TorusWalletAdapter extends _walletAdapterBase.BaseMessageSignerWalletAdapt
     }
 }
 
-},{"@solana/wallet-adapter-base":"8nZDB","@solana/web3.js":"5JBKN","f40f846cc7b67c53":"gpazJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gpazJ":[function(require,module,exports) {
+},{"@solana/wallet-adapter-base":"8nZDB","@solana/web3.js":"5JBKN","712777d8002b32df":"gpazJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gpazJ":[function(require,module,exports) {
 module.exports = require("./helpers/browser/js-loader")(require('./helpers/bundle-url').getBundleURL('7UhFu') + "solanaEmbed.esm.16e1c615.js" + "?" + Date.now()).catch((err)=>{
     delete module.bundle.cache[module.id];
     throw err;
